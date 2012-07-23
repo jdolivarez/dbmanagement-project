@@ -5,12 +5,29 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+   <h5 style="text-align:right;">
+  <%= link_to "Texas A&M University Libraries", "http://library.tamu.edu/" %> 
+</h5>
+  <div>  
+  	<%= link_to "Locations", locations_path %>  
+    <%= link_to "Items", itmes_path %>
+    <%= link_to "Users", users_path %> 
+    <%= link_to "Search Status", searchstatuses_path %>
+</div>
+
+
+<% if flash[:notice].present? %>
+  <p class="flash-notice"><%= flash[:notice] %></p>
+<% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 </head>
 <body>
 
 <%= yield %>
-
+<h5 style="text-align:center;">
+        	<%= link_to "Texas A&M University", "http://www.tamu.edu/" %>
+        </h5>
 </body>
 </html>
