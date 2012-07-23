@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  author: MyString
+  callnumber: MyString
+  volume: MyString
+  comments: MyText
+  numofsearch: 1
+
+two:
+  title: MyString
+  author: MyString
+  callnumber: MyString
+  volume: MyString
+  comments: MyText
+  numofsearch: 1

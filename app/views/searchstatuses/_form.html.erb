@@ -1,0 +1,21 @@
+<%= form_for(@searchstatus) do |f| %>
+  <% if @searchstatus.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@searchstatus.errors.count, "error") %> prohibited this searchstatus from being saved:</h2>
+
+      <ul>
+      <% @searchstatus.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

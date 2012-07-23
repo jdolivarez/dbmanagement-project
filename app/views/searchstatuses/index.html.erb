@@ -1,0 +1,23 @@
+<h1>Listing searchstatuses</h1>
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @searchstatuses.each do |searchstatus| %>
+  <tr>
+    <td><%= searchstatus.status %></td>
+    <td><%= link_to 'Show', searchstatus %></td>
+    <td><%= link_to 'Edit', edit_searchstatus_path(searchstatus) %></td>
+    <td><%= link_to 'Destroy', searchstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Searchstatus', new_searchstatus_path %>
