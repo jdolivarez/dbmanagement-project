@@ -1,4 +1,6 @@
 DbmanagementProject::Application.routes.draw do
+  devise_for :employees
+
   resources :searchstatuses
 
   resources :locations
