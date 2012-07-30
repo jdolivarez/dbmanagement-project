@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120728210125) do
+ActiveRecord::Schema.define(:version => 20120730214255) do
 
   create_table "employees", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120728210125) do
     t.integer  "numofsearch"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "location_id"
   end
 
   create_table "locations", :force => true do |t|

@@ -31,6 +31,8 @@
     <%= f.label :comments %><br />
     <%= f.text_area :comments %>
   </div>
+
+<%= select(:item, :location_id, Location.all.map {|location| [location.location, location.id]} ) %><br />
  <!-- <div class="field">
     <%= f.label :numofsearch %><br />
     <%= f.number_field :numofsearch %>

@@ -1,4 +1,4 @@
 class Location < ActiveRecord::Base
-	belongs_to :item
+  has_many :items
   attr_accessible :location
 end
