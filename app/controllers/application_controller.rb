@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(employee)
     items_path
   end
-
  def after_sign_out_path_for(employee)
-    "http://localhost:3000/employees/sign_in"
+   items_path 
   end
 end

@@ -1,4 +1,5 @@
 class Searchstatus < ActiveRecord::Base
-	belongs_to :item
+	has_one :item
   attr_accessible :status
+ 
 end

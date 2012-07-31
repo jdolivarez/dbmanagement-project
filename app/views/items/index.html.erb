@@ -8,8 +8,8 @@
     <th>Volume</th>
     <th>Comments</th>
     <th>Number of searches</th>
-    <th></th>
-    <th></th>
+    <th>Location</th>
+    <th>Search Status</th>
     <th></th>
   </tr>
 
@@ -21,6 +21,8 @@
     <td><%= item.volume %></td>
     <td><%= item.comments %></td>
     <td><%= item.numofsearch %></td>
+    <td><%= select(:item, :location_id, Location.all.map {|location| [location.location, location.id]} )%></td>
+    <td><%= item.searchstatus_id %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
