@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
 	has_many :items
   # attr_accessible :email, :first_name, :last_name, :libraryid
   #validates :libraryid, :uniqueness => true
+    def self.current
+    Thread.current[:user]
+  end
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
 end

@@ -1,12 +1,15 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
+
   def index
+   
     @items = Item.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }
+ 
     end
   end
 
@@ -35,6 +38,7 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
     @item = Item.find(params[:id])
+
   end
 
   # POST /items

@@ -21,3 +21,29 @@
 <br />
 
 <%= link_to 'New Location', new_location_path %>
+
+<div id="highChartContainer" style="min-width: 200px; height: 200px; margin: 0 auto"></div>
+<script type='text/javascript'>
+    chart = new Highcharts.Chart({
+    chart: {
+        renderTo: 'highChartContainer',
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false
+    },
+    title: {
+        text: 'Locations'
+},
+        
+    series: [{
+        type: 'pie',
+        name: 'Locations',
+        data: 
+        <%=
+    @locations.map do |location|
+      [location.location, 1.0/@total]
+   end.to_json.html_safe
+%>
+    }]
+  });
+</script>

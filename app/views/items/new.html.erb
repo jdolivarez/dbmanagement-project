@@ -1,5 +1,49 @@
 <h1>New item</h1>
 
-<%= render 'form' %>
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+ 
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :callnumber %><br />
+    <%= f.text_field :callnumber %>
+  </div>
+  <div class="field">
+    <%= f.label :volume %><br />
+    <%= f.text_field :volume %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+
+<%= select(:item, :location_id, Location.all.map {|location| [location.location, location.id]} ) %><br />
+<% select(:item, :searchstatus_id, Searchstatus.all.map {|searchstatus| [searchstatus.status, searchstatus.id]} ) %>
+<br />
+ <!-- <div class="field">
+    <%= f.label :numofsearch %><br />
+    <%= f.number_field :numofsearch %>
+  </div>
+  <div class="actions"> -->
+    <%= f.submit %>
+  </div>
+<% end %>
 <%= link_to 'Back', items_path %>
