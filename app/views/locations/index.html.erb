@@ -22,18 +22,48 @@
 
 <%= link_to 'New Location', new_location_path %>
 
-<div id="highChartContainer" style="min-width: 200px; height: 200px; margin: 0 auto"></div>
+<div id="highChartContainer" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 <script type='text/javascript'>
+
     chart = new Highcharts.Chart({
     chart: {
         renderTo: 'highChartContainer',
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
+        borderColor: '#346691',
+        borderWidth: 2,
+        backgroundColor:'#B7A66D',
+        plotBackgroundColor: "#4F552A",
+        plotBorderColor: '#1D3362',
+        plotBorderWidth: 2,
         plotShadow: false
     },
-    title: {
-        text: 'Locations'
-},
+   title: {
+    text: "Location",
+      style: {
+        color: '#1D3362',
+        
+        font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
+    
+         }
+   },
+  tooltip: {
+      formatter: function() {
+        return '<b>'+ this.point.name +'</b>: '+ Highcharts.numberFormat(this.percentage, 2, '.') +' %';
+      }
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          color: '#000000',
+          connectorColor: '#000000',
+          formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ Highcharts.numberFormat(this.percentage, 2, '.') +' %';
+          }
+        }
+      }
+    },
         
     series: [{
         type: 'pie',
