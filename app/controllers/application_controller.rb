@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
  def after_sign_out_path_for(employee)
  pages_path
  end
+ def after_sign_out_path_for(user)
+ pages_path
+ end
 
 end
 

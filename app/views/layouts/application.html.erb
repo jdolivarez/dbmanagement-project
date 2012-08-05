@@ -25,7 +25,7 @@ margin-right: auto;
   <%= csrf_meta_tags %>
     <%# user is logged in, show log out link %>
   <% if current_user.present? %>
-    <%= link_to 'Sign Out', destroy_user_session_path, :method => :get %>
+    <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
   <%# user is not logged in, show signup and login links %>
   <% else %>
     <%= link_to 'Sign In', new_user_session_path %> |

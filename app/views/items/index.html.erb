@@ -21,17 +21,22 @@
     <td><%= item.callnumber %></td>
     <td><%= item.volume %></td>
     <td><%= item.comments %></td>
-    <td><%= item.numofsearch %></td>
+    <td data-item='<%= item.id %>'><%= item.numofsearch %>
+  
     <td><%= item.location.location if item.location_id.present? %></td>
     <td><%= item.searchstatus.status if item.searchstatus_id.present? %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+
 <% end %>
+
+
 </table>
+
 <%= link_to 'New Item', new_item_path %>
-<div id="highChartContainer" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
 
 
 
