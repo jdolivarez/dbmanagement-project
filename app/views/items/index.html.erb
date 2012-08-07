@@ -21,8 +21,7 @@
     <td><%= item.callnumber %></td>
     <td><%= item.volume %></td>
     <td><%= item.comments %></td>
-    <td data-item='<%= item.id %>'><%= item.numofsearch %>
-  
+    <td><%= item.numofsearch %></td>
     <td><%= item.location.location if item.location_id.present? %></td>
     <td><%= item.searchstatus.status if item.searchstatus_id.present? %></td>
     <td><%= link_to 'Show', item %></td>
@@ -34,8 +33,6 @@
 
 
 </table>
-
-<%= link_to 'New Item', new_item_path %>
 
 
 
