@@ -8,8 +8,7 @@ class Item < ActiveRecord::Base
   
       self.searchstatus_id ||= 1         #will set the default value only if it's nil
     end
-     
 
-  attr_accessible :searchstatus_id, :location_id, :author, :callnumber, :comments, :numofsearch, :title, :volume
+  attr_accessible :user_id, :searchstatus_id, :location_id, :author, :callnumber, :comments, :numofsearch, :title, :volume
  
 end

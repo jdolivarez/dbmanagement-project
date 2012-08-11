@@ -1,4 +1,6 @@
 DbmanagementProject::Application.routes.draw do
+  devise_for :admins
+
   devise_for :users
 
   devise_for :employees
@@ -12,7 +14,8 @@ DbmanagementProject::Application.routes.draw do
   resources :users
 
   resources :pages
-
+  
+  resources :stuff
 
   root :to => "pages#index"
   # The priority is based upon order of creation:

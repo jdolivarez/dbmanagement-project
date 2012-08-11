@@ -1,17 +1,26 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
-before_filter :authenticate_user!
+#before_filter :authenticate_user!
+#before_filter :authenticate_admin!
   def index
-   
+   if admin_signed_in?
     @items = Item.paginate :page => params[:page], :per_page => 5
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }
- 
     end
   end
+    if user_signed_in?
+      @items = current_user.items.paginate :page => params[:page], :per_page => 5
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @items }
+    end
+    end
+end
 
   # GET /items/1
   # GET /items/1.json
@@ -44,7 +53,8 @@ before_filter :authenticate_user!
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
+    #@item = Item.new(params[:item])
+    @item = current_user.items.create(params[:item])
 
     respond_to do |format|
       if @item.save

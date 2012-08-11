@@ -12,6 +12,7 @@
     <th>Number of searches</th>
     <th>Location</th>
     <th>Search Status</th>
+    <th>User ID</th>
     <th></th>
   </tr>
 <% @items.each do |item| %> 
@@ -24,6 +25,7 @@
     <td><%= item.numofsearch %></td>
     <td><%= item.location.location if item.location_id.present? %></td>
     <td><%= item.searchstatus.status if item.searchstatus_id.present? %></td>
+    <td><%= item.user_id %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

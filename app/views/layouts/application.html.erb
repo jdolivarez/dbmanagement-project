@@ -31,25 +31,42 @@ margin-right: auto;
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
     <%# user is logged in, show log out link %>
+  <% if current_admin.present? %>
+    <%= link_to 'Admin Sign Out', destroy_admin_session_path, :method => :get %>
+    <% else %>
   <% if current_user.present? %>
     <%= link_to 'Sign Out', destroy_user_session_path, :method => :get %>
   <%# user is not logged in, show signup and login links %>
   <% else %>
-    <%= link_to 'Sign In', new_user_session_path %> |
-    <%= link_to 'Register Now!', new_user_registration_path %>
+    <%= link_to 'User Sign In', new_user_session_path %> |
+    <%= link_to 'Register New User', new_user_registration_path %>
+  <% end %>
   <% end %>
 
    <h5 style="text-align:right;">
   <%= link_to "Texas A&M University Libraries", "http://library.tamu.edu/" %> 
 </h5>
+<h5 style="text-align:left;">
+  <% if user_signed_in? %>
+  <div>Signed in as <%= current_user.email %></div>
+<% end %>
+<% if admin_signed_in? %>
+  <div>Signed in as Admin:<%= current_admin.email %></div>
+<% end %>
+</h5>
   <div style="text-align:left;">  
     <%= link_to "Home", pages_path %> 
   	<%= link_to "Locations", locations_path %>  
-    <%= link_to "Items", items_path %>
+    <% if user_signed_in? %>
+    <%= link_to "Your Items", items_path %>
+    <%end%>
+    <% if admin_signed_in? %>
+     <%= link_to "Items", items_path %>
+     <%end%>
+
     <%= link_to "Users", users_path %> 
     <%= link_to "Search Status", searchstatuses_path %>
 </div>
-
 
 <% if flash[:notice].present? %>
   <p class="flash-notice"><%= flash[:notice] %></p>
