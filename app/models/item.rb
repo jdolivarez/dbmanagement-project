@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
 	def init
       self.numofsearch ||= 0          #will set the default value only if it's nil
   
-      self.searchstatus_id ||= 5         #will set the default value only if it's nil
+      self.searchstatus_id ||= 0         #will set the default value only if it's nil
     end
      
 

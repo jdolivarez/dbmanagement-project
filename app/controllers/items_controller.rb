@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
-
+before_filter :authenticate_user!
   def index
    
     @items = Item.paginate :page => params[:page], :per_page => 5
@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to items_path, notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

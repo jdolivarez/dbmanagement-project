@@ -44,7 +44,7 @@ class SearchstatusesController < ApplicationController
 
     respond_to do |format|
       if @searchstatus.save
-        format.html { redirect_to @searchstatus, notice: 'Searchstatus was successfully created.' }
+        format.html { redirect_to @searchstatus, notice: 'Search status was successfully created.' }
         format.json { render json: @searchstatus, status: :created, location: @searchstatus }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class SearchstatusesController < ApplicationController
 
     respond_to do |format|
       if @searchstatus.update_attributes(params[:searchstatus])
-        format.html { redirect_to @searchstatus, notice: 'Searchstatus was successfully updated.' }
+        format.html { redirect_to @searchstatus, notice: 'Search status was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
