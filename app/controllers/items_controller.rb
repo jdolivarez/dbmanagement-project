@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
-#before_filter :authenticate_user!
+before_filter :authenticate_user!, :only => [:new]
 #before_filter :authenticate_admin!
   def index
    if admin_signed_in?

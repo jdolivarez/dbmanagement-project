@@ -37,7 +37,9 @@
 </table>
 
 <%= will_paginate @links %>
+<% if current_admin.present? %>
+<%else%>
 <%= link_to 'New Item', new_item_path %>
-
+<%end%>
 
 
